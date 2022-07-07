@@ -8,11 +8,13 @@
             width="1.76rem"
             height="1.76rem"
             round
-            src="https://img01.yzcdn.cn/vant/cat.jpeg"
+            :src="userInfo.photo"
           />
-          <span>黑马头条</span>
+          <span>{{ userInfo.name }}</span>
         </div>
-        <div class="button">编辑资料</div>
+        <div class="button" @click="$router.push('/user/profile')">
+          编辑资料
+        </div>
       </div>
       <ul class="list">
         <li>

@@ -1,4 +1,3 @@
-import store from '@/store'
 import request from '@/utils/request'
 /**
  *获取短信验证码
@@ -32,9 +31,66 @@ export const login = ({ mobile, code }) => {
  */
 export const getUserInfo = () => {
   return request({
-    url: 'user',
-    headers: {
-      Authorization: 'Bearer ' + store.state.user.token
+    url: 'user'
+  })
+}
+/**
+ *根据用户id取消关注
+ * @param {*} autId
+ * @returns
+ */
+export const cancelFollow = (autId) => {
+  return request({
+    method: 'DELETE',
+    url: `/user/followings/${autId}`
+  })
+}
+/**
+ *根据id关注作者
+ * @param {*} data
+ * @returns
+ */
+export const addFollow = (target) => {
+  return request({
+    method: 'POST',
+    url: '/user/followings',
+    data: {
+      target
     }
+  })
+}
+/**
+ *获取用户信息
+ * @returns
+ */
+export const getUserProfile = () => {
+  return request({
+    method: 'GET',
+    url: '/user/profile'
+  })
+}
+/**
+ *修改用户的个人信息
+ * @param {*} username
+ * @returns
+ */
+export const updateName = (data) => {
+  return request({
+    method: 'PATCH',
+    url: '/user/profile',
+    data
+  })
+}
+
+/**
+ *修改用户头像
+ * @param {*} photo
+ * @returns
+ */
+export const updatePhote = (data) => {
+  return request({
+    method: 'PATCH',
+    url: '/user/photo',
+    data
   })
 }

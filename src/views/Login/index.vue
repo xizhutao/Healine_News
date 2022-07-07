@@ -19,7 +19,7 @@
           },
         ]"
       >
-        <MyIcon :name="shouji" slot="left-icon"></MyIcon>
+        <MyIcon name="shouji" slot="left-icon"></MyIcon>
       </van-field>
       <van-field
         v-model.trim="code"
@@ -31,7 +31,7 @@
           { pattern: /^\d{6}$/, message: '验证码长度必须是六位' },
         ]"
       >
-        <MyIcon :name="yanzhengma" slot="left-icon"></MyIcon>
+        <MyIcon name="yanzhengma" slot="left-icon"></MyIcon>
         <template #button>
           <van-count-down
             @finish="isCountDownShow = false"
@@ -65,7 +65,7 @@ export default {
   created () { },
   data () {
     return {
-      mobile: '13911111111', // 手机号
+      mobile: '13033030173', // 手机号
       code: '246810', // 短信验证码,
       time: 60 * 1000,
       isCountDownShow: false
